@@ -1,0 +1,37 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["config:recommended"],
+    "enabledManagers": ["kustomize", "helmfile", "regex"],
+    "regexManagers": [
+      {
+        "fileMatch": ["kustomization\\.yaml$"],
+        "matchStrings": ["https://raw\\.githubusercontent\\.com/(?<depName>[^/]+/[^/]+)/(?<currentValue>v[\\d\\.]+)/.*\\.yaml"],
+        "datasourceTemplate": "github-tags",
+        "versioningTemplate": "semver"
+      }
+    ],
+    "packageRules": [
+      {
+        "managers": ["helm-values"],
+        "enabled": false
+      },
+      {
+        "matchPackagePatterns": ["*"],
+        "matchManagers": ["dockerfile", "docker-compose"],
+        "enabled": false
+      },
+      {
+        "datasources": ["docker"],
+        "enabled": false
+      },
+      {
+        "updateTypes": ["minor", "patch"],
+        "enabled": false
+      },
+      {
+        "matchUpdateTypes": ["major"],
+        "enabled": true
+      }
+    ]
+  }
+  
