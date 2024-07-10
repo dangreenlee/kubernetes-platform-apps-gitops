@@ -30,11 +30,3 @@ This repository uses Renovate to automate dependency updates. The configuration 
 ## GitOps Workflow
 
 This repository is designed to be used with a GitOps tool like Argo CD. The `platform` directory contains the configurations for different platform applications.
-
-## Getting Started
-
-1. Clone this repository
-2. Install the Renovate GitHub App on your repository
-3. Configure your GitOps tool (e.g., Argo CD) to sync this repository with your Kubernetes cluster
-
-For more detailed instructions, please refer to the [Setting Up Renovate](#) section in our documentation.
